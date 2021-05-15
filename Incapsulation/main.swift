@@ -7,40 +7,40 @@
 
 import Foundation
 //нет инкапсуляции
-class FirstMessenger
+class FirstCounter
 {
-    public var massage = ""
+    public var count = 0
 }
 //сеттеры
-class SecondMessenger
+class SecondCounter
 {
-    private var massage = ""
+    private var count = 0
     
-    public func getMassage() -> String
+    public func getCount() -> Int
     {
-        return massage
+        return count
     }
-    public func setMassage(_ Massage: String)
+    public func setCount(_ Count: Int)
     {
-        massage = Massage
+        count = Count
     }
 }
 //protokoli
-class ThirdMessenger
+class ThirdCounter
 {
-    private var massage = ""
+    private var count = 0
     
-    public func getMassage() -> String
+    public func getCount() -> Int
     {
-        return massage
+        return count
     }
-    public func inc(_ symbol: Character)
+    public func inc()
     {
-        massage += String(symbol)
+        count += 1
     }
-    public func setMassage(_ Massage: String)
+    public func dec()
     {
-        massage = Massage
+       count -= 1
     }
 }
 
@@ -60,3 +60,14 @@ class ColorPrinter: IPrinter
         print("\(smth)")
     }
 }
+
+func Print(_ printer: IPrinter)
+{
+    var message: String = readLine()!
+    printer.printSmth(smth: message)
+}
+
+
+var printer: ColorPrinter = ColorPrinter()
+
+Print(printer)
